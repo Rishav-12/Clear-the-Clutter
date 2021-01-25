@@ -5,6 +5,7 @@ ImgExts = [".jpg", ".jpeg", ".bmp", ".png"]
 DocExts = [".txt", ".doc", ".docx", ".pdf"]
 OfficeExts = [".xlsx", ".pptx", ".accdb"]
 MediaExts = [".mp4", ".mp3", ".m4a", ".flv", ".mkv", ".avi"]
+CodeExts = [".py", ".java", ".c", ".js"]
 
 def createFolder(foldername):
     if not os.path.exists(foldername):
@@ -14,6 +15,7 @@ createFolder('Images')
 createFolder('Docs')
 createFolder('Office')
 createFolder('Media')
+createFolder('Code')
 createFolder('Others')
 
 contents = os.listdir()
@@ -32,5 +34,7 @@ for file in files:
         shutil.move(file, 'Office')
     elif os.path.splitext(file)[1].lower() in MediaExts:
         shutil.move(file, 'Media')
+    elif os.path.splitext(file)[1].lower() in CodeExts:
+        shutil.move(file, 'Code')
     else:
         shutil.move(file, 'Others')
